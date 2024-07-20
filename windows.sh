@@ -4,7 +4,7 @@
 #### FUNCTIONS!! ####
 
 do_the_zsh_thing(){
-  if [[ $(echo $SHELL) != *"zsh"* ]];
+  if [ $(echo $SHELL) != *"zsh"* ];
   then
     fancy_echo "Upgrading you to ZSH"
     fancy_install "zsh"
