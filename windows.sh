@@ -8,13 +8,10 @@ do_the_zsh_thing(){
   then
     fancy_echo "Upgrading you to ZSH"
     fancy_install "zsh"
-    if [ ! -f "~/.zshrc" ]; 
-    then 
-      touch ~/.zshrc
-      touch ~/.zprofile 
-      touch ~/.zlogin 
-    fi
-
+    touch ~/.zshrc
+    touch ~/.zprofile 
+    touch ~/.zlogin 
+    
     chsh -s $(which zsh)
     exec zsh --login
     fancy_echo "You are now on ZSH"
