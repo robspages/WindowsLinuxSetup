@@ -41,7 +41,7 @@ append_to_zshrc() {
     fi
   fi
 
-  zsh_update() 
+  zsh_update
 }
 
 zsh_update(){
