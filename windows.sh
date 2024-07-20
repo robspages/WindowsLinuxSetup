@@ -7,10 +7,10 @@ do_the_zsh_thing(){
   if [ $(echo $SHELL) != *"zsh"* ];
   then
     fancy_echo "Upgrading you to ZSH"
-    fancy_install "zsh"
+    sudo apt install zsh -y
+    touch ~/.zlogin
+    touch ~/.zprofile
     touch ~/.zshrc
-    touch ~/.zprofile 
-    touch ~/.zlogin 
     
     chsh -s $(which zsh)
     exec zsh --login
@@ -59,7 +59,7 @@ fancy_echo() {
 
 fancy_install(){
   fancy_echo "Installing $1"
-  sudo apt-get install $1
+  sudo apt install $1 -y
   zsh_update
 }
 
