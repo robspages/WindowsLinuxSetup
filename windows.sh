@@ -10,7 +10,7 @@ do_the_zsh_thing(){
     fancy_install "zsh"
     if [ ! -f "~/.zshrc" ]; 
     then 
-      touch ~./zshrc
+      touch ~/.zshrc
       touch ~/.zprofile 
       touch ~/.zlogin 
     fi
