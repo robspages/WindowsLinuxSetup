@@ -6,6 +6,7 @@
 do_the_zsh_thing(){
   if [[ $(echo $SHELL) != *"zsh"* ]];
   then
+    fancy_echo "Upgrading you to ZSH"
     fancy_install "zsh"
     if [ ! -f "~/.zshrc" ]; 
     then 
@@ -23,7 +24,7 @@ do_the_zsh_thing(){
 }
 
 # stolen from Thoughtbot's Laptop Mac script
-append_to_zshrc() {
+append_to_zshrc(){
   local text="$1" zshrc
   local skip_new_line="${2:-0}"
 
