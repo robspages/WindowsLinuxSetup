@@ -6,7 +6,7 @@
 do_the_zsh_thing(){
   if [[ $(echo $SHELL) != *"zsh"* ]];
   then
-    fancy_install zsh
+    fancy_install "zsh"
     if [ ! -f "~/.zshrc" ]; 
     then 
       touch ~./zshrc
@@ -16,7 +16,9 @@ do_the_zsh_thing(){
 
     chsh -s $(which zsh)
     exec zsh --login
-    fancy_echo("You are now on ZSH")
+    fancy_echo "You are now on ZSH"
+  else 
+    fancy_echo "You are already on ZSH"
   fi
 }
 
@@ -58,7 +60,7 @@ fancy_echo() {
 }
 
 fancy_install(){
-  fancy_echo("Installing $1");
+  fancy_echo "Installing $1"
   sudo apt-get install $1
   zsh_update
 }
@@ -68,10 +70,10 @@ fancy_install(){
 do_the_zsh_thing
 
 #install other prereqs
-fancy_install(git)
-fancy_install(curl)
-fancy_install(gpg)
-fancy_install(gawk)
+fancy_install "git"
+fancy_install "curl"
+fancy_install "gpg"
+fancy_install "gawk"
 
 #getting the ASDF programming language version manager
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
@@ -84,11 +86,11 @@ asdf plugin install node "https://github.com/asdf-vm/asdf-node.git"
 zsh_update 
 
 # languages 
-fancy_echo("Installing Ruby 3.3.4")
+fancy_echo "Installing Ruby 3.3.4"
 asdf list all ruby
 asdf install ruby 3.3.4
 
-fancy_echo("Installing the latest version of Node.js")
+fancy_echo "Installing the latest version of Node.js"
 asdf list all node 
 asdf install node latest 
 
